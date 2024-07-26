@@ -6,6 +6,8 @@ import "./Dashboard.css"
 export default function Dashboard() {
     const { allTasks } = useContext(TasksContext)
     const { allCategories } = useContext(CategoriesContext)
+    const completedTasks = allTasks.filter(task => task.isComplete).length
+    const pendingTasks = allTasks.filter(task => !task.inComplete).length
     return (
         <section>
             <div className="dashboard-title">
@@ -21,11 +23,11 @@ export default function Dashboard() {
                     <p>Categories</p>
                 </div>
                 <div className="card">
-                    <h1>6</h1>
+                    <h1>{completedTasks}</h1>
                     <p>Tasks <span>Completed</span></p>
                 </div>
                 <div className="card">
-                    <h1>4</h1>
+                    <h1>{pendingTasks}</h1>
                     <p>Tasks <span>Pending</span></p>
                 </div>
             </div>

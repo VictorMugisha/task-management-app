@@ -15,9 +15,24 @@ export default function App() {
     localStorage.setItem("allTasks", JSON.stringify(newTasks))
   }
 
+  function completeTask(taskId) {
+    const newTasks = allTasks.map(task => {
+      if (task.taskId === taskId) {
+        return {
+          ...task,
+          isComplete: true
+        }
+      } else {
+        return task
+      }
+    })
+    localStorage.setItem("allTasks", JSON.stringify(newTasks))
+  }
+
   const tasksContextValue = {
     allTasks,
-    deleteTask
+    deleteTask,
+    completeTask
   }
 
   // Categories Context

@@ -3,7 +3,7 @@ import TasksContext from "../../contexts/TasksContext"
 import "./Task.css"
 
 export default function Task({ task }) {
-    const { deleteTask } = useContext(TasksContext)
+    const { deleteTask, completeTask } = useContext(TasksContext)
     return (
         <div className="task">
             <p className="task-title">{task.taskTitle}</p>
@@ -12,7 +12,7 @@ export default function Task({ task }) {
             <p className="completion-status">{task.isComplete ? "Complete" : "Pending"}</p>
 
             <div className="buttons">
-                <button>Complete</button>
+                <button onClick={() => completeTask(task.taskId)}>Complete</button>
                 <button>Edit</button>
                 <button onClick={() => deleteTask(task.taskId)}>Delete</button>
             </div>
