@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 import "../otherStyles/NewTask.css"
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export default function NewTask() {
     const [taskFormData, setTaskFormData] = useState({
@@ -32,7 +33,7 @@ export default function NewTask() {
 
         // alert(JSON.stringify(taskFormData))
 
-        const dataAlreadyExist = JSON.parse(localStorage.getItem("allTasks")) || []
+        const dataAlreadyExist = useLocalStorage()
 
         const dataToSave = dataAlreadyExist.length > 0 ? dataAlreadyExist : []
 
