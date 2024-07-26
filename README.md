@@ -1,8 +1,21 @@
-# React + Vite
+# Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+A Task Management App helps users organize and prioritize their tasks. Users can create, update, delete, and categorize tasks. The app should also allow users to mark tasks as complete or incomplete.
 
-Currently, two official plugins are available:
+## Features
+### Task Creation and Management
+- Users can add new tasks with titles, descriptions, and due dates.
+- Users can update task details or delete tasks.
+- Tasks can be marked as complete or incomplete.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Categorization and Filtering
+- Tasks can be categorized (e.g., Work, Personal, Urgent).
+- Users can filter tasks based on their categories or completion status.
+
+### Persisting Data
+- Tasks are saved to local storage so that they persist between sessions.
+
+### Responsive Design
+- The app is responsive, providing a good user experience on both desktop and mobile devices.
+
