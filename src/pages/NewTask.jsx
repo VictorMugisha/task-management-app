@@ -33,7 +33,7 @@ export default function NewTask() {
 
         // alert(JSON.stringify(taskFormData))
 
-        const dataAlreadyExist = useLocalStorage()
+        const dataAlreadyExist = useLocalStorage("allTasks")
 
         const dataToSave = dataAlreadyExist.length > 0 ? dataAlreadyExist : []
 

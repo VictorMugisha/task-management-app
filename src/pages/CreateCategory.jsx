@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../otherStyles/NewTask.css"
 import { nanoid } from 'nanoid'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 // The Stylesheet for this is borrowed from NewTask's stylesheet
 
@@ -18,18 +19,32 @@ export default function CreateCategory() {
     }))
   }
 
-  function validateInput(event) {
+  function handleSubmit(event) {
     event.preventDefault()
     if (categoryTitle.categoryTitle == "") {
       alert("You need to provide a title!!")
       return
     }
-    return true
+
+    const storedData = useLocalStorage("allCategories")
+
+    const finalDataToSave = storedData.length ? storedData : []
+
+    finalDataToSave.push(categoryTitle)
+
+    localStorage.setItem("allCategories", JSON.stringify(finalDataToSave))
+
+    setCategoryTitle({
+      categoryId: nanoid(),
+      categoryTitle: ''
+    })
+
+    alert("Category added successfully!!")
   }
   return (
     <section className="new-task-container">
       <h2 className="title">Create New Category</h2>
-      <form onSubmit={validateInput}>
+      <form onSubmit={handleSubmit}>
         <div className="input">
           <p>Enter Category Title</p>
           <input

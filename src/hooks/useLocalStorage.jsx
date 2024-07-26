@@ -1,5 +1,5 @@
 
-export default function useLocalStorage() {
-    const dataStored = JSON.parse(localStorage.getItem("allTasks")) || []
+export default function useLocalStorage(entry) {
+    const dataStored = JSON.parse(localStorage.getItem(entry)) || []
     return dataStored
 }
