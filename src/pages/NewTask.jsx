@@ -47,6 +47,8 @@ export default function NewTask() {
             dueDate: '',
             isComplete: false,
         })
+
+        alert("New Task is Added!!")
     }
 
 
