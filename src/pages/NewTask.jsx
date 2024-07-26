@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 import "../otherStyles/NewTask.css"
 
@@ -32,8 +32,15 @@ export default function NewTask() {
 
         // alert(JSON.stringify(taskFormData))
         
-        return true
+        const dataAlreadyExist = JSON.parse(localStorage.getItem("allTasks")) || []
+
+        const dataToSave = dataAlreadyExist.length > 0 ? dataAlreadyExist : []
+
+        dataToSave.push(taskFormData)
+
+        localStorage.setItem("allTasks", JSON.stringify(dataToSave))
     }
+
     
     return (
         <section className="new-task-container">
@@ -56,7 +63,7 @@ export default function NewTask() {
                         value={taskFormData.taskCategory}
                         onChange={handleChange}
                     >
-                        <option value="" disabled selected>--Choose--</option>
+                        <option disabled defaultValue={''}>--Choose--</option>
                         <option value="Personal">Personal</option>
                         <option value="Work">Work</option>
                         <option value="Study">Study</option>
