@@ -49,3 +49,7 @@ button:focus-visible {
 h1 {
   font-weight: 400;
 }
+
+section {
+  padding: 1rem 2rem;
+}
