@@ -5,6 +5,15 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(126, 126, 124);
+  border-radius: 20px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
