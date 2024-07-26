@@ -1,3 +1,4 @@
+/* Dashboard Styles */
 section {
     display: flex;
     flex-direction: column;
@@ -12,11 +13,10 @@ section {
 .dashboard-cards {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, auto );
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     padding: 1rem 0;
 }
-
 
 .dashboard-cards .card {
     display: flex;
@@ -32,4 +32,80 @@ section {
 .dashboard-cards .card h1 {
     font-weight: 700;
     font-size: 3em;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-title h3 {
+        font-size: 22px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-cards .card h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-title h3 {
+        font-size: 20px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+
+    .dashboard-cards .card {
+        padding: 2.5rem 0;
+    }
+
+    .dashboard-cards .card h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        align-items: center;
+    }
+
+    .dashboard-title h3 {
+        font-size: 18px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
+
+    .dashboard-cards .card {
+        padding: 2rem 0;
+    }
+
+    .dashboard-cards .card h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-title h3 {
+        font-size: 16px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
+
+    .dashboard-cards .card {
+        padding: 1.5rem 0;
+    }
+
+    .dashboard-cards .card h1 {
+        font-size: 1.8em;
+    }
 }
