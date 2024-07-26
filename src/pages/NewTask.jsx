@@ -19,7 +19,7 @@ export default function NewTask() {
         }))
     }
 
-    function handleSubmit(event) {
+    function validateFormInput(event) {
         event.preventDefault()
         if (taskFormData.taskTitle == "") {
             alert("Form Title is Required!!")
@@ -31,12 +31,14 @@ export default function NewTask() {
         }
 
         // alert(JSON.stringify(taskFormData))
+        
+        return true
     }
     
     return (
         <section className="new-task-container">
             <h2 className="title">Create New Task</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={validateFormInput}>
                 <div className="input">
                     <p>Enter Task Title</p>
                     <input
