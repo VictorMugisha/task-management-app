@@ -7,7 +7,7 @@ export default function Dashboard() {
     const { allTasks } = useContext(TasksContext)
     const { allCategories } = useContext(CategoriesContext)
     const completedTasks = allTasks.filter(task => task.isComplete).length
-    const pendingTasks = allTasks.filter(task => !task.inComplete).length
+    const pendingTasks = allTasks.filter(task => !task.isComplete).length
     return (
         <section>
             <div className="dashboard-title">
