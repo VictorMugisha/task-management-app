@@ -7,6 +7,7 @@ import AllTasks from './AllTasks';
 import NewTask from './NewTask';
 import CreateCategory from './CreateCategory';
 import AllCategories from './AllCategories';
+import UpdateTask from './UpdateTask';
 
 export default function Layout() {
     return (
@@ -18,6 +19,9 @@ export default function Layout() {
                 <Route path="/new-task" element={<NewTask />} />
                 <Route path="/new-category" element={<CreateCategory />} />
                 <Route path="/all-categories" element={<AllCategories />} />
+                <Route path="/edit-task" element={<UpdateTask />}>
+                    <Route path=':taskId' element={<UpdateTask />} />
+                </Route>
             </Routes>
         </Router>
     );

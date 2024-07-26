@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import TasksContext from "../../contexts/TasksContext"
 import "./Task.css"
 
@@ -13,7 +14,7 @@ export default function Task({ task }) {
 
             <div className="buttons">
                 <button onClick={() => completeTask(task.taskId)}>Complete</button>
-                <button>Edit</button>
+                <Link to={`/edit-task/${task.taskId}`}><button>Edit</button></Link>
                 <button onClick={() => deleteTask(task.taskId)}>Delete</button>
             </div>
         </div>
