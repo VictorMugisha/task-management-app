@@ -80,11 +80,11 @@ export default function NewTask() {
                         value={taskFormData.taskCategory}
                         onChange={handleChange}
                     >
-                        <option disabled defaultValue={''}>--Choose--</option>
+                        <option value='' disabled>--Choose--</option>
                         {
                             savedCategories.length ?
                                 savedCategories.map(category => (
-                                    <option key={category.categoryId} value={category}>{category.categoryTitle}</option>
+                                    <option key={category.categoryId} value={category.categoryTitle}>{category.categoryTitle}</option>
                                 )) :
                                 <option value={"Custom"}>Custom</option>
                         }
