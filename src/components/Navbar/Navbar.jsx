@@ -8,6 +8,7 @@ export default function Navbar() {
             <h1>Task Management</h1>
         </div>
         <nav>
+            <button>Home</button>
             <button>All Tasks</button>
             <button>New Task</button>
             <button>All Categories</button>
