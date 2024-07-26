@@ -31,7 +31,7 @@ export default function NewTask() {
         }
 
         // alert(JSON.stringify(taskFormData))
-        
+
         const dataAlreadyExist = JSON.parse(localStorage.getItem("allTasks")) || []
 
         const dataToSave = dataAlreadyExist.length > 0 ? dataAlreadyExist : []
@@ -39,9 +39,17 @@ export default function NewTask() {
         dataToSave.push(taskFormData)
 
         localStorage.setItem("allTasks", JSON.stringify(dataToSave))
+
+        setTaskFormData({
+            taskId: nanoid(),
+            taskTitle: '',
+            taskCategory: '',
+            dueDate: '',
+            isComplete: false,
+        })
     }
 
-    
+
     return (
         <section className="new-task-container">
             <h2 className="title">Create New Task</h2>
