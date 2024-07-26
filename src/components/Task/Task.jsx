@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import TasksContext from "../../contexts/TasksContext"
 import "./Task.css"
 
-export default function Task({task}) {
+export default function Task({ task }) {
+    const { deleteTask } = useContext(TasksContext)
     return (
         <div className="task">
             <p className="task-title">{task.taskTitle}</p>
@@ -12,7 +14,7 @@ export default function Task({task}) {
             <div className="buttons">
                 <button>Complete</button>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => deleteTask(task.taskId)}>Delete</button>
             </div>
         </div>
     )

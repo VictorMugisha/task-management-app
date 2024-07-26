@@ -9,11 +9,16 @@ export default function App() {
 
   // Tasks Context
   const allTasks = useLocalStorage("allTasks")
-
-  const tasksContextValue = {
-    allTasks
+  
+  function deleteTask(taskId) {
+    const newTasks = allTasks.filter(task => task.taskId !== taskId)
+    localStorage.setItem("allTasks", JSON.stringify(newTasks))
   }
 
+  const tasksContextValue = {
+    allTasks,
+    deleteTask
+  }
 
   // Categories Context
   const allCategories = useLocalStorage("allCategories")
