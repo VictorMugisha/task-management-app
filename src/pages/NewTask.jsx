@@ -12,6 +12,13 @@ export default function NewTask() {
         isComplete: false,
     })
 
+    const [savedCategories, setSavedCategories] = useState([])
+
+    useEffect(() => {
+        const possibleCategories = useLocalStorage("allCategories")
+        setSavedCategories(possibleCategories)
+    }, [])
+
     function handleChange(event) {
         const { name, value } = event.target
         setTaskFormData(prevData => ({
@@ -52,7 +59,6 @@ export default function NewTask() {
         alert("New Task is Added!!")
     }
 
-
     return (
         <section className="new-task-container">
             <h2 className="title">Create New Task</h2>
@@ -75,10 +81,13 @@ export default function NewTask() {
                         onChange={handleChange}
                     >
                         <option disabled defaultValue={''}>--Choose--</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Work">Work</option>
-                        <option value="Study">Study</option>
-                        <option value="Custom">Custom</option>
+                        {
+                            savedCategories.length ?
+                                savedCategories.map(category => (
+                                    <option key={category.categoryId} value={category}>{category.categoryTitle}</option>
+                                )) :
+                                <option value={"Custom"}>Custom</option>
+                        }
                     </select>
                 </div>
                 <div className="input">
