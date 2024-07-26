@@ -11,7 +11,7 @@ export default function Navbar() {
       <nav>
         <Link to="/"><button>Home</button></Link>
         <Link to="/all-tasks"><button>All Tasks</button></Link>
-        <button>New Task</button>
+        <Link to="/new-task"><button>New Task</button></Link>
         <button>All Categories</button>
         <button>Create Category</button>
       </nav>
