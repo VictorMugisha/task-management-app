@@ -17,13 +17,26 @@ export default function NewTask() {
             ...prevData,
             [name]: value
         }))
-
     }
-    console.log(taskFormData)
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        if (taskFormData.taskTitle == "") {
+            alert("Form Title is Required!!")
+            return
+        }
+
+        if (taskFormData.taskCategory == "") {
+            taskFormData.taskCategory = "Custom"
+        }
+
+        // alert(JSON.stringify(taskFormData))
+    }
+    
     return (
         <section className="new-task-container">
             <h2 className="title">Create New Task</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="input">
                     <p>Enter Task Title</p>
                     <input
